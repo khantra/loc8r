@@ -2,9 +2,10 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+//to parse cookkies, and JSON
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+//get routes
 var routes = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
 
