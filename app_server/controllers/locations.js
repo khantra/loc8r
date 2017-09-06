@@ -1,4 +1,3 @@
-/* GET 'home' page */
 module.exports.homelist = function(req, res) {
     res.render('locations-list', {
         title: 'Loc8r - find a place to work with wifi',
@@ -28,8 +27,6 @@ module.exports.homelist = function(req, res) {
         }]
     });
 };
-
-/* GET 'Location info' page */
 
 /* GET 'Location info' page */
 module.exports.locationInfo = function(req, res) {
@@ -81,7 +78,11 @@ module.exports.locationInfo = function(req, res) {
 };
 
 /* GET 'Add review' page */
-module.exports.addReview = function(req, res){
-res.render('location-review-form', { title: 'Add review' });
+module.exports.addReview = function(req, res) {
+    res.render('location-review-form', {
+        title: 'Review Starcups on Loc8r',
+        pageHeader: {
+            title: 'Review Starcups'
+        }
+    });
 };
-
