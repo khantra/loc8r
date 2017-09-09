@@ -7,7 +7,7 @@ var sendJSONresponse = function(res, status, content) {
 };
 
 var theEarth = (function() {
-  var earthRadius = 6371; // km, miles is 3959
+  var earthRadius = 6371; 
 
   var getDistanceFromRads = function(rads) {
     return parseFloat(rads * earthRadius);
@@ -101,10 +101,10 @@ module.exports.locationsReadOne = function(req, res) {
   }
 };
 
-/* POST a new location */
-/* /api/locations */
+/* POST a new location  /api/locations */
 module.exports.locationsCreate = function(req, res) {
   console.log(req.body);
+  
   Loc.create({
     name: req.body.name,
     address: req.body.address,
@@ -140,9 +140,7 @@ module.exports.locationsUpdateOne = function(req, res) {
     });
     return;
   }
-  Loc
-    .findById(req.params.locationid)
-    .select('-reviews -rating')
+  Loc.findById(req.params.locationid).select('-reviews -rating')
     .exec(
       function(err, location) {
         if (!location) {
@@ -184,9 +182,7 @@ module.exports.locationsUpdateOne = function(req, res) {
 module.exports.locationsDeleteOne = function(req, res) {
   var locationid = req.params.locationid;
   if (locationid) {
-    Loc
-      .findByIdAndRemove(locationid)
-      .exec(
+    Loc.findByIdAndRemove(locationid).exec(
         function(err, location) {
           if (err) {
             console.log(err);

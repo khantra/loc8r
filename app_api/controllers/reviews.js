@@ -9,13 +9,11 @@ var sendJSONresponse = function(res, status, content) {
   res.json(content);
 };
 
-/* POST a new review, providing a locationid */
-/* /api/locations/:locationid/reviews */
+// POST a new review at /api/locations/:locationid/reviews 
+//colon signfies variable
 module.exports.reviewsCreate = function(req, res) {
   if (req.params.locationid) {
-    Loc
-      .findById(req.params.locationid)
-      .select('reviews')
+    Loc.findById(req.params.locationid).select('reviews')
       .exec(
         function(err, location) {
           if (err) {
